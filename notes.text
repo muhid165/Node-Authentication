@@ -1,0 +1,61 @@
+
+JWT - JWT (JSON Web Token) is an open standard for securely transmitting information between parties 
+as a JSON object. It consists of three parts: a header (which specifies the token type and algorithm 
+used for signing), a payload (which contains the claims or the data being transmitted), and a 
+signature (which is used to verify the token’s integrity and authenticity). JWTs are commonly used 
+for authentication and authorization purposes, allowing users to securely transmit and validate 
+their identity and permissions across web applications and APIs. They are compact, self-contained, 
+and can be easily transmitted in HTTP headers, making them popular for modern web and mobile applications.
+
+official website = 'jwt.io'
+
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way 
+for securely transmitting information between parties as a JSON object. This information can be 
+verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the 
+HMAC algorithm) or a public/private key pair using RSA or ECDSA.
+
+
+JWTs can be encrypted to also provide secrecy between parties.
+
+Signed tokens can verify the integrity of the claims contained within it, while encrypted tokens 
+hide those claims from other parties. When tokens are signed using public/private key pairs, the 
+signature also certifies that only the party holding the private key is the one that signed it.
+
+
+some scenarios where JSON Web Tokens are useful:- 
+
+Authorization: This is the most common scenario for using JWT. Once the user is logged in, each 
+subsequent request will include the JWT, allowing the user to access routes, services, and resources 
+that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, 
+because of its small overhead and its ability to be easily used across different domains.
+
+
+Information Exchange: JSON Web Tokens are a good way of securely transmitting information between 
+parties. Because JWTs can be signed—for example, using public/private key pairs—you can be sure the 
+senders are who they say they are. Additionally, as the signature is calculated using the header 
+and the payload, you can also verify that the content hasn't been tampered with.
+
+JSON Web Tokens consist of three parts separated by dots:- 
+
+♦ Header- The header typically consists of two parts: the type of the token, which is JWT, and the 
+signing algorithm being used, such as HMAC SHA256 or RSA.
+ex: {
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+
+♦ Payload- The second part of the token is the payload, which contains the claims. Claims are 
+statements about an entity (typically, the user) and additional data. There are three types of 
+claims: registered, public, and private claims.
+ex: {
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+
+
+♦ Signature- The signature is used to verify the message wasn't changed along the way, and, in the 
+case of tokens signed with a private key, it can also verify that the sender of the JWT is who it 
+says it is.
+
